@@ -1,16 +1,17 @@
 import { S3Client, ListBucketsCommand } from '@aws-sdk/client-s3';
 require('dotenv').config()
 
+const region = process.env.S3_REGION as string
 const accessKey = process.env.S3_ACCESS_KEY_ID as string
 const secretKey = process.env.S3_SECRET_ACCESS_KEY as string
 
 // ~/.aws/credentials に書かれている
 const s3 = new S3Client({
-    region: 'ap-northeast-1',
-    credentials: {
-        accessKeyId: accessKey,
-        secretAccessKey: secretKey,
-    },
+  region: region,
+  credentials: {
+    accessKeyId: accessKey,
+    secretAccessKey: secretKey,
+  },
 });
 
 
