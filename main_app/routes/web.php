@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,12 +11,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(['auth'])->get('/', function () {
+Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-require __DIR__.'/auth.php';
+Route::get('/a', function () {
+    return ['hello' => 34];
+});
