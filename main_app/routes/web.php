@@ -11,9 +11,11 @@
 |
 */
 
+Auth::routes();
 Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/a', function () {
     return ['hello' => 34];
 });
+
