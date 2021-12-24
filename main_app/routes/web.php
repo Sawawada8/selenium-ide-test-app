@@ -12,10 +12,13 @@
 */
 
 Auth::routes();
+
 Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/a', function () {
-    return ['hello' => 34];
+    $users = \App\Models\User::all();
+    return view('demo', ['users' => $users]);
 });
 
+Route::get('/aa', 'HomeController@index');
