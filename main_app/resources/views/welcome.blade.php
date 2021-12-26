@@ -96,5 +96,24 @@
                 </div>
             </div>
         </div>
+        <script>
+          fetch('/graphql', {
+            method: 'POST',
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              query:
+                `query {
+                  users{
+                    data{
+                      id
+                      email
+                    }
+                  }
+                }`
+            })
+          }).then(res => console.log(res))
+        </script>
     </body>
 </html>
