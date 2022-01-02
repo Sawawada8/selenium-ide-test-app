@@ -16,9 +16,25 @@ Auth::routes();
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/home', function () {
+    return view('welcome');
+});
 Route::get('/a', function () {
     $users = \App\Models\User::all();
     return view('demo', ['users' => $users]);
 });
 
-Route::get('/aa', 'HomeController@index');
+Route::middleware('auth:web')->get('/aa', 'HomeController@index');
+
+/* admin */
+Route::prefix('admin')
+    ->namespace('Admin')
+    ->name('admin.')
+    // ->middleware('auth:admin')
+    ->group(function() {
+        Auth::routes(['register' => false]);
+        Route::get('/home', 'HomeController@index')->name('admin_home');
+        Route::middleware('auth:admin')->get('/f', function() {
+            return ['a' => 34];
+        });
+});
