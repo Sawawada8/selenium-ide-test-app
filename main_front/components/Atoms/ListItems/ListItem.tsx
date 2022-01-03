@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from '@chakra-ui/react';
+import { Box, Center } from '@chakra-ui/react';
 import { PhoneIcon, AddIcon, WarningIcon } from '@chakra-ui/icons';
 
 interface Props {

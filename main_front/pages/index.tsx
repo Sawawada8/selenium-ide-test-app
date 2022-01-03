@@ -4,7 +4,11 @@ import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 
 import { PhoneIcon, AddIcon, WarningIcon } from '@chakra-ui/icons';
-import { ListItem } from '../components/Atoms/ListItems/ListItem';
+
+import {} from '../components/Atoms/AtomsImport';
+import {} from '../components/Molecules/MoleclesImport';
+import {} from '../components/Organisms/OrganismsImport';
+import { SidebarLayout } from '../components/Templates/TemplatesImport';
 
 const Home: NextPage = () => {
   return (
@@ -15,11 +19,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div>
-        <ListItem Icon={<WarningIcon w={6} h={6} mr={3} />} name="world2" />
-        <ListItem Icon={<AddIcon w={6} h={6} mr={3} />} name="world2" />
-        <ListItem />
-      </div>
+      <SidebarLayout mainContent={'hello'} />
     </div>
   );
 };
