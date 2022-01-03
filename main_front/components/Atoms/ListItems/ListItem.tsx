@@ -9,22 +9,15 @@ interface Props {
 }
 
 export const ListItem: React.FC<Props> = ({ Icon, name, link }: Props) => {
-  const enter = (e: any) => {
-    e.target.style.opacity = 0.7;
-  };
-  const leave = (e: any) => {
-    e.target.style.opacity = 1;
-  };
   return (
     <Box
-      bg="tomato"
+      bg="green.200"
       w="100%"
       p={3}
       mt={2}
       mb={2}
-      color="white"
-      onMouseEnter={enter}
-      onMouseLeave={leave}
+      // color="white"
+      _hover={{ bg: 'green.300' }}
     >
       {Icon}
       {name}
