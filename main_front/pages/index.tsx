@@ -3,10 +3,8 @@ import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 
-import { PhoneIcon, AddIcon, WarningIcon } from '@chakra-ui/icons';
-
 import {} from '../components/Atoms/AtomsImport';
-import {} from '../components/Molecules/MoleclesImport';
+import {} from '../components/Molecules/MoleculesImport';
 import {} from '../components/Organisms/OrganismsImport';
 import { SidebarLayout } from '../components/Templates/TemplatesImport';
 

@@ -1,15 +1,15 @@
 import React from 'react';
 import { Box, Flex } from '@chakra-ui/react';
 
-import { ListAccordion } from '../../Molecules/Accordions/ListAccordion';
-import { ListItem } from '../../Atoms/ListItems/ListItem';
-import { Sidebar } from '../../Organisms/Sidebars/Sidebar';
+import { ListAccordion } from '../../Molecules/MoleculesImport';
+import { ListItem } from '../../Atoms/AtomsImport';
+import { Sidebar } from '../../Organisms/OrganismsImport';
 
 interface Props {
   mainContent: any;
 }
 
-export const SidebarLayout = ({ mainContent }: Props) => {
+export const SidebarLayout: React.FC<Props> = ({ mainContent }: Props) => {
   const sideBarLists = [
     <ListItem key={1} name="TestingList" />,
     <ListItem key={2} name="TimeScadule" />,
@@ -33,5 +33,5 @@ export const SidebarLayout = ({ mainContent }: Props) => {
 };
 
 SidebarLayout.defaultProps = {
-  mainContent: <div>hello world</div>,
+  // mainContent: <div>hello world</div>,
 };

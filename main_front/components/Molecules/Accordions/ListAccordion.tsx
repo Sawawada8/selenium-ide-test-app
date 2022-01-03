@@ -10,7 +10,6 @@ import {
 import { Box } from '@chakra-ui/react';
 import { PhoneIcon, AddIcon, WarningIcon } from '@chakra-ui/icons';
 
-// import { ListItem } from '../../Atoms/ListItems/ListItem';
 import { ListItem } from '../../Atoms/AtomsImport';
 
 interface Props {
@@ -19,7 +18,11 @@ interface Props {
   children?: any;
 }
 
-export const ListAccordion = ({ lists, title, children }: Props) => {
+export const ListAccordion: React.FC<Props> = ({
+  lists,
+  title,
+  children,
+}: Props) => {
   return (
     <Accordion allowMultiple bg="gray">
       <AccordionItem>
@@ -41,17 +44,9 @@ export const ListAccordion = ({ lists, title, children }: Props) => {
       </AccordionItem>
     </Accordion>
   );
-  return (
-    <>
-      {lists.map((i, val) => {
-        return val;
-      })}
-    </>
-  );
 };
 
 ListAccordion.defaultProps = {
-  lists: [<ListItem key={1} />, <ListItem key={2} />],
-  title: 'hello',
-  // children: null,
+  // lists: [<ListItem key={1} />, <ListItem key={2} />],
+  // title: 'defalut',
 };

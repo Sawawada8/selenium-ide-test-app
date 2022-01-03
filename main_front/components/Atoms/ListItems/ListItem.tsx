@@ -3,12 +3,12 @@ import { Box, Center } from '@chakra-ui/react';
 import { PhoneIcon, AddIcon, WarningIcon } from '@chakra-ui/icons';
 
 interface Props {
-  Icon: any;
-  name: string;
+  Icon?: any;
+  name?: string;
   link?: string;
 }
 
-export const ListItem = ({ Icon, name, link }: Props) => {
+export const ListItem: React.FC<Props> = ({ Icon, name, link }: Props) => {
   const enter = (e: any) => {
     e.target.style.opacity = 0.7;
   };
@@ -35,4 +35,5 @@ export const ListItem = ({ Icon, name, link }: Props) => {
 ListItem.defaultProps = {
   Icon: <AddIcon w={6} h={6} mr={3} />,
   name: 'default',
+  link: '#',
 };
