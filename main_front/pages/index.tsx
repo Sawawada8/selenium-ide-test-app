@@ -5,7 +5,7 @@ import styles from '../styles/Home.module.css';
 
 import {} from '../components/Atoms/AtomsImport';
 import {} from '../components/Molecules/MoleculesImport';
-import {} from '../components/Organisms/OrganismsImport';
+import { ListTable } from '../components/Organisms/OrganismsImport';
 import { SidebarLayout } from '../components/Templates/TemplatesImport';
 
 const Home: NextPage = () => {
@@ -17,7 +17,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <SidebarLayout mainContent={'hello'} />
+      <SidebarLayout mainContent={<ListTable />} />
     </div>
   );
 };
