@@ -24,10 +24,10 @@ export const ListAccordion: React.FC<Props> = ({
   children,
 }: Props) => {
   return (
-    <Accordion allowMultiple bg="gray">
+    <Accordion allowMultiple color="white">
       <AccordionItem>
         <h2>
-          <AccordionButton p={3}>
+          <AccordionButton p={3} _hover={{ bg: 'gray.700' }}>
             <Box flex="1" textAlign="left">
               {Icon}
               {title}

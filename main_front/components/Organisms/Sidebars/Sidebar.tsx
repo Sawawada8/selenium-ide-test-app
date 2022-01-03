@@ -7,7 +7,7 @@ interface Props {
 
 export const Sidebar: React.FC<Props> = ({ children }: Props) => {
   return (
-    <Box w="200px" h="100vh" overflow="scroll">
+    <Box w="220px" h="100vh" m={3} overflow="scroll">
       {children}
     </Box>
   );

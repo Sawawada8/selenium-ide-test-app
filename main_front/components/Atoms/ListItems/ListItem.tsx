@@ -11,13 +11,13 @@ interface Props {
 export const ListItem: React.FC<Props> = ({ Icon, name, link }: Props) => {
   return (
     <Box
-      bg="green.200"
+      // bg="green.200"
       w="100%"
       p={3}
       mt={2}
       mb={2}
-      // color="white"
-      _hover={{ bg: 'green.300' }}
+      color="white"
+      _hover={{ bg: 'gray.600' }}
     >
       {Icon}
       {name}

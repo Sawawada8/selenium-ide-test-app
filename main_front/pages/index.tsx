@@ -3,7 +3,9 @@ import Head from 'next/head';
 import Image from 'next/image';
 // import styles from '../styles/Home.module.css';
 
-import {} from '../components/Atoms/AtomsImport';
+import { Box } from '@chakra-ui/react';
+
+import { Title } from '../components/Atoms/AtomsImport';
 import {} from '../components/Molecules/MoleculesImport';
 import { ListTable } from '../components/Organisms/OrganismsImport';
 import { SidebarLayout } from '../components/Templates/TemplatesImport';
@@ -17,7 +19,14 @@ const Home: NextPage = () => {
         <link rel="icon" href="/sele.svg" />
       </Head>
 
-      <SidebarLayout mainContent={<ListTable />} />
+      <SidebarLayout
+        mainContent={
+          <Box p={5}>
+            <Title title="hello" />
+            <ListTable />
+          </Box>
+        }
+      />
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { Box, Flex } from '@chakra-ui/react';
 import { DragHandleIcon } from '@chakra-ui/icons';
 
 import { ListAccordion } from '../../Molecules/MoleculesImport';
-import { ListItem } from '../../Atoms/AtomsImport';
+import { ListItem, ListHead } from '../../Atoms/AtomsImport';
 import { Sidebar } from '../../Organisms/OrganismsImport';
 
 interface Props {
@@ -15,6 +15,7 @@ export const SidebarLayout: React.FC<Props> = ({ mainContent }: Props) => {
     <Flex>
       <Box bgColor="black">
         <Sidebar>
+          <ListHead userName="UserName" userRole="Admin" />
           <ListItem name="TestingList" />
           <ListItem name="TimeScadule" />
           <ListAccordion
@@ -25,10 +26,26 @@ export const SidebarLayout: React.FC<Props> = ({ mainContent }: Props) => {
             <ListItem />
             <ListItem />
             <ListItem />
+            <ListItem />
+            <ListItem />
+            <ListItem />
+            <ListItem />
+            <ListItem />
+            <ListItem />
+            <ListItem />
+            <ListItem />
+            <ListItem />
+            <ListItem />
+            <ListItem />
+            <ListItem />
+            <ListItem />
+            <ListItem />
+            <ListItem />
+            <ListItem />
           </ListAccordion>
         </Sidebar>
       </Box>
-      <Box flex="1" bgColor={'tomato'} h="100vh" overflow="scroll">
+      <Box flex="1" bgColor="gray.200" h="100vh" overflow="scroll">
         {mainContent}
       </Box>
     </Flex>
