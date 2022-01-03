@@ -1,13 +1,15 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
-// import styles from '../styles/Home.module.css';
 
 import { Box } from '@chakra-ui/react';
 
 import { Title } from '../components/Atoms/AtomsImport';
 import {} from '../components/Molecules/MoleculesImport';
-import { ListTable } from '../components/Organisms/OrganismsImport';
+import {
+  ListTable,
+  ListMainContent,
+} from '../components/Organisms/OrganismsImport';
 import { SidebarLayout } from '../components/Templates/TemplatesImport';
 
 const Home: NextPage = () => {
@@ -19,14 +21,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/sele.svg" />
       </Head>
 
-      <SidebarLayout
-        mainContent={
-          <Box p={5}>
-            <Title title="hello" />
-            <ListTable />
-          </Box>
-        }
-      />
+      <SidebarLayout mainContent={<ListMainContent title="Projects" />} />
     </div>
   );
 };
