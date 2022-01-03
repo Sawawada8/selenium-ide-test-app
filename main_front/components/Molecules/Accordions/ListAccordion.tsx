@@ -8,18 +8,18 @@ import {
   AccordionIcon,
 } from '@chakra-ui/react';
 import { Box } from '@chakra-ui/react';
-import { PhoneIcon, AddIcon, WarningIcon } from '@chakra-ui/icons';
+import { DragHandleIcon } from '@chakra-ui/icons';
 
 import { ListItem } from '../../Atoms/AtomsImport';
 
 interface Props {
-  lists: any[];
+  Icon?: any;
   title: string;
   children?: any;
 }
 
 export const ListAccordion: React.FC<Props> = ({
-  lists,
+  Icon,
   title,
   children,
 }: Props) => {
@@ -29,24 +29,18 @@ export const ListAccordion: React.FC<Props> = ({
         <h2>
           <AccordionButton p={3}>
             <Box flex="1" textAlign="left">
-              <AddIcon w={6} h={6} mr={3} />
+              {Icon}
               {title}
             </Box>
             <AccordionIcon />
           </AccordionButton>
         </h2>
-        <AccordionPanel>
-          {lists.map((v, i) => {
-            return v;
-          })}
-          <ListItem />
-        </AccordionPanel>
+        <AccordionPanel>{children}</AccordionPanel>
       </AccordionItem>
     </Accordion>
   );
 };
 
 ListAccordion.defaultProps = {
-  // lists: [<ListItem key={1} />, <ListItem key={2} />],
-  // title: 'defalut',
+  Icon: <DragHandleIcon w={6} h={6} mr={3} />,
 };

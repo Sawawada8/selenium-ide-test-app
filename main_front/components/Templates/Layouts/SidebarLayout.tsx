@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Flex } from '@chakra-ui/react';
+import { DragHandleIcon } from '@chakra-ui/icons';
 
 import { ListAccordion } from '../../Molecules/MoleculesImport';
 import { ListItem } from '../../Atoms/AtomsImport';
@@ -10,28 +11,28 @@ interface Props {
 }
 
 export const SidebarLayout: React.FC<Props> = ({ mainContent }: Props) => {
-  const sideBarLists = [
-    <ListItem key={1} name="TestingList" />,
-    <ListItem key={2} name="TimeScadule" />,
-    <ListAccordion
-      key={3}
-      title="Details"
-      lists={[<ListItem key={1} />, <ListItem key={2} />]}
-    />,
-  ];
-
   return (
     <Flex>
-      <Box mr={5}>
-        <Sidebar lists={sideBarLists} />
+      <Box bgColor="black">
+        <Sidebar>
+          <ListItem name="TestingList" />
+          <ListItem name="TimeScadule" />
+          <ListAccordion
+            Icon={<DragHandleIcon w={6} h={6} mr={3} />}
+            title="Details"
+          >
+            <ListItem />
+            <ListItem />
+            <ListItem />
+            <ListItem />
+          </ListAccordion>
+        </Sidebar>
       </Box>
-      <Box flex="1" bgColor={'tomato'}>
+      <Box flex="1" bgColor={'tomato'} h="100vh" overflow="scroll">
         {mainContent}
       </Box>
     </Flex>
   );
 };
 
-SidebarLayout.defaultProps = {
-  // mainContent: <div>hello world</div>,
-};
+SidebarLayout.defaultProps = {};
