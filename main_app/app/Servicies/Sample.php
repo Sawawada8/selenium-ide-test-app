@@ -2,8 +2,10 @@
 
 namespace App\Servicies;
 
-class Sample {
-    public function callHello() {
+class Sample
+{
+    public function callHello()
+    {
         echo 'called callhello';
     }
 }

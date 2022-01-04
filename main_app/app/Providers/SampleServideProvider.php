@@ -13,7 +13,6 @@ class SampleServideProvider extends ServiceProvider
      */
     public function register()
     {
-        //
         $this->app->bind(App\Servicies\Sample::class, function ($app) {
             return new App\Servicies\Sample();
         });

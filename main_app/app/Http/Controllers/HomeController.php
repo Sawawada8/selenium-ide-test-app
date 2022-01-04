@@ -11,7 +11,7 @@ class HomeController extends Controller
     public function index(Sample $obj, UseC $o)
     {
         $obj->callHello();
-        echo "------<br>";
+        echo '------<br>';
         $o->invoke();
     }
 }
