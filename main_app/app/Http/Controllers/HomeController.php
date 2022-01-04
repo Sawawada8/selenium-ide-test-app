@@ -8,9 +8,10 @@ use App\UseCase\Sample as UseC;
 
 class HomeController extends Controller
 {
-    public function index(Sample $obj, UseC $o) {
+    public function index(Sample $obj, UseC $o)
+    {
         $obj->callHello();
-        echo '------<br>';
+        echo "------<br>";
         $o->invoke();
     }
 }
