@@ -25,6 +25,7 @@ class HomeController extends Controller
 
     public function home()
     {
+        return view('aaa');
         return response()->json(['res' => 'succesed user login ']);
     }
 }
