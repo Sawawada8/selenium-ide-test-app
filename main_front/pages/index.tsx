@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 // import styles from '../styles/Home.module.css';
+import axios from 'axios';
 
 import { Box } from '@chakra-ui/react';
 
@@ -11,6 +12,27 @@ import { ListTable } from '../components/Organisms/OrganismsImport';
 import { SidebarLayout } from '../components/Templates/TemplatesImport';
 
 const Home: NextPage = () => {
+  const handleClick = () => {
+    const loginParams = { email: 'example@gmail.com', password: 'password' };
+    axios.defaults.withCredentials = true;
+    axios
+      // CSRF保護の初期化
+      .get('http://localhost:8080/sanctum/csrf-cookie', {
+        withCredentials: true,
+      })
+      .then(response => {
+        console.log({ response, aaa: 'csrt token hakkou' });
+        // ログイン処理
+        axios
+          .post('http://localhost:8080/login', loginParams, {
+            withCredentials: true,
+          })
+          .then(response => {
+            console.log(response.data);
+          });
+      });
+  };
+
   return (
     <div>
       <Head>
@@ -24,6 +46,7 @@ const Home: NextPage = () => {
           <Box p={5}>
             <Title title="hello" />
             <ListTable />
+            <button onClick={handleClick}>login</button>
           </Box>
         }
       />
