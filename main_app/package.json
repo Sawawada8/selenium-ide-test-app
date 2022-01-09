@@ -11,6 +11,7 @@
     "prettier": "prettier"
   },
   "devDependencies": {
+    "@babel/preset-react": "^7.16.7",
     "@prettier/plugin-php": "^0.17.6",
     "cross-env": "^7.0",
     "laravel-mix": "^6.0.39",

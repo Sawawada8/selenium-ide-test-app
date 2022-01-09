@@ -26,6 +26,7 @@ if (token) {
     'CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token',
   );
 }
+window.axios.defaults.withCredentials = true;
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
