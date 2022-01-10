@@ -20,7 +20,7 @@ Table projects {
     name varchar
 }
 
-Ref: project_process.project_id > project.id
+Ref: project_procies.project_id > project.id
 Table project_procies {
     id int [pk, increment]
     project_id int [ref: > projects.id]
@@ -31,6 +31,8 @@ Ref: project_prociess_logs.project_procies_id > project_procies.id
 Table project_prociess_logs {
     id int [pk, increment]
     project_prociess_id int [ref: > project_prociess_id]
+    result int
+    exected_at timestamp
 }
 
 Table labels {

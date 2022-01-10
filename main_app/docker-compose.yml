@@ -41,3 +41,4 @@ services:
       PMA_PORT: '${DB_PORT}'
     depends_on:
       - db
+# volumes:

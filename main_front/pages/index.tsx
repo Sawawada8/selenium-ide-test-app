@@ -15,6 +15,7 @@ const Home: NextPage = () => {
   const handleClick = () => {
     const loginParams = { email: 'example@gmail.com', password: 'password' };
     axios.defaults.withCredentials = true;
+    // /*
     axios
       // CSRF保護の初期化
       .get('http://localhost:8080/sanctum/csrf-cookie', {
@@ -22,6 +23,7 @@ const Home: NextPage = () => {
       })
       .then(response => {
         console.log({ response, aaa: 'csrt token hakkou' });
+        // */
         // ログイン処理
         axios
           .post('http://localhost:8080/login', loginParams, {
@@ -45,6 +47,10 @@ const Home: NextPage = () => {
         mainContent={
           <Box p={5}>
             <Title title="hello" />
+            <ListTable />
+            <ListTable />
+            <ListTable />
+            <ListTable />
             <ListTable />
             <button onClick={handleClick}>login</button>
           </Box>
