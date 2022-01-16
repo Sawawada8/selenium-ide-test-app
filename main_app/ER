@@ -47,7 +47,9 @@ Table labels {
     label varchar
 }
 
-Table project_label {
+// label projet 中間テーブル
+Table label_project {
+    id int [pk, increment]
     label_id int [ref: > labels.id]
     project_id int [ref: > project.id]
 }
