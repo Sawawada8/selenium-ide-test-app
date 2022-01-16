@@ -20,6 +20,13 @@ Table projects {
     name varchar
 }
 
+// projects の子テーブル
+Table sections {
+    id int [pk, increment]
+    project_id int [ref: > projects.id]
+    script_url varchar
+}
+
 Ref: project_procies.project_id > project.id
 Table project_procies {
     id int [pk, increment]

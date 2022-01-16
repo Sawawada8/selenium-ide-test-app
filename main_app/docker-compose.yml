@@ -21,7 +21,8 @@ services:
       MYSQL_PASSWORD: '${DB_PASSWORD}'
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
     volumes:
-      - './db_data/:/var/lib/mysql'
+      - 'db_data:/var/lib/mysql'
+      # - './db_data/:/var/lib/mysql'
     # platform: linux/x86_64
     # healthcheck:
     #   test: ["CMD", "mysqladmin", "ping", "-p${DB_PASSWORD}"]
@@ -41,4 +42,5 @@ services:
       PMA_PORT: '${DB_PORT}'
     depends_on:
       - db
-# volumes:
+volumes:
+  db_data:
