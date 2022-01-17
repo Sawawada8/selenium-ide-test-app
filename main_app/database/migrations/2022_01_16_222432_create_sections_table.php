@@ -15,9 +15,14 @@ class CreateSectionsTable extends Migration
     {
         Schema::create('sections', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('project_id');
+            $table->bigInteger('project_id')->unsigned();
             $table->string('script_url');
             $table->timestamps();
+
+            $table
+                ->foreign('project_id')
+                ->references('id')
+                ->on('projects');
         });
     }
 

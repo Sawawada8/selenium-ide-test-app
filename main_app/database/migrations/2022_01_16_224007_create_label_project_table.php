@@ -15,10 +15,19 @@ class CreateLabelProjectTable extends Migration
     {
         Schema::create('label_project', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('label_id');
-            $table->bigInteger('project_id');
+            $table->bigInteger('label_id')->unsigned();
+            $table->bigInteger('project_id')->unsigned();
             // $table->foreignId('project_id')->constrained();
             $table->timestamps();
+
+            $table
+                ->foreign('label_id')
+                ->references('id')
+                ->on('labels');
+            $table
+                ->foreign('project_id')
+                ->references('id')
+                ->on('projects');
         });
     }
 
