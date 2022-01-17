@@ -15,9 +15,14 @@ class CreateResultsTable extends Migration
     {
         Schema::create('results', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('section_id');
+            $table->bigInteger('section_id')->unsigned();
             $table->timestamp('exected_at');
             $table->timestamps();
+
+            $table
+                ->foreign('section_id')
+                ->references('id')
+                ->on('sections');
         });
     }
 
