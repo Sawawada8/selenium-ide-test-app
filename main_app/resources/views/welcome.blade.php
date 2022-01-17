@@ -4,11 +4,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    {{-- <script>window.Laravel = {csrfToken: '{{ csrf_token() }}'}</script> --}}
         <title>Laravel</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
 
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <!-- Styles -->
         <style>
             html, body {
@@ -97,4 +99,7 @@
             </div>
         </div>
     </body>
+    {{-- <script>window.Laravel = {csrfToken: '{{ csrf_token() }}'}</script> --}}
+    <script src="js/app.js" defer></script>
+
 </html>

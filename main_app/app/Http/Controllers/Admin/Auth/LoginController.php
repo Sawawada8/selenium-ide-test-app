@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Admin\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
@@ -28,7 +28,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = RouteServiceProvider::ADMIN_HOME;
 
     /**
      * Create a new controller instance.
@@ -37,46 +37,28 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('guest:web')->except('logout');
-        $this->middleware('guest:user')->except('logout');
+        $this->middleware('guest:admin')->except('logout');
     }
+
     protected function guard()
     {
-        // return Auth::guard('web');
-        return Auth::guard('user');
+        return Auth::guard('admin');
     }
 
     public function showLoginForm()
     {
-        return view('auth.login');
+        return view('admin.auth.login');
     }
 
     public function logout(Request $request)
     {
-        // Auth::guard('web')->logout();
-        Auth::guard('user')->logout();
+        Auth::guard('admin')->logout();
 
         return $this->loggedOut($request);
     }
 
     public function loggedOut(Request $request)
     {
-        return redirect(route('login'));
-    }
-
-    public function login(Request $request)
-    {
-        // : JsonResponse
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => 'required',
-        ]);
-
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            return response()->json(['name' => Auth::user()->email], 200);
-        }
-
-        throw new Exception('ログインに失敗しました。再度お試しください');
+        return redirect(route('admin.login'));
     }
 }

@@ -22,3 +22,23 @@ Route::get('/a', function () {
 });
 
 Route::get('/aa', 'HomeController@index');
+Route::post('/aa', 'HomeController@indexp');
+
+Route::middleware('auth:user')
+    // Route::middleware('auth:web')
+    ->group(function () {
+        Route::get('/home', 'HomeController@home');
+    });
+
+Route::namespace('Admin')
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
+        Auth::routes();
+
+        Route::middleware('auth:admin')->group(function () {
+            Route::get('home', 'HomeController@index');
+        });
+    });
+
+// Route::get('/admin/home', 'Admin\HomeController@index');
