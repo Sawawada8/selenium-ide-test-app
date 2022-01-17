@@ -1,3 +1,9 @@
+Table admins as A {
+    id int [pk, increment]
+    name varchar
+    email varchar
+    password varchar
+}
 
 Table users as U {
     id int [pk, increment]
@@ -5,12 +11,6 @@ Table users as U {
     email varchar
     password varchar
     role tinyint
-}
-Table admins as A {
-    id int [pk, increment]
-    name varchar
-    email varchar
-    password varchar
 }
 
 Ref: projects.user_id > users.id
@@ -27,20 +27,6 @@ Table sections {
     script_url varchar
 }
 
-Ref: project_procies.project_id > project.id
-Table project_procies {
-    id int [pk, increment]
-    project_id int [ref: > projects.id]
-    name varchar
-}
-
-Ref: project_prociess_logs.project_procies_id > project_procies.id
-Table project_prociess_logs {
-    id int [pk, increment]
-    project_prociess_id int [ref: > project_prociess_id]
-    result int
-    exected_at timestamp
-}
 
 Table labels {
     id int [pk, increment]
@@ -54,7 +40,14 @@ Table label_project {
     project_id int [ref: > project.id]
 }
 
-Table project_process_label {
-    label_id int [ref: > labels.id]
-    project_process_id int [ref: > project.id]
+Table roles {
+    id int [pk, increment]
+    name varchar
 }
+
+Table user_role {
+    id int [pk, increment]
+    user_id int [ref: > users.id]
+    role_id int [ref: > roles.id]
+}
+
