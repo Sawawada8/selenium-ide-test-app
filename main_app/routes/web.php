@@ -16,20 +16,27 @@ Auth::routes();
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/a', function () {
-    $users = \App\Models\User::all();
-    return view('demo', ['users' => $users]);
-});
 
-Route::get('/aa', 'HomeController@index');
-Route::post('/aa', 'HomeController@indexp');
+// user auth
+// Route::middleware('auth:user')
+//     // Route::middleware('auth:web')
+//     ->group(function () {
+Route::get('/home', 'HomeController@home');
 
-Route::middleware('auth:user')
-    // Route::middleware('auth:web')
+Route::prefix('{user}')
+    ->name('user.')
     ->group(function () {
-        Route::get('/home', 'HomeController@home');
+        Route::get('/', 'HomeController@home')->name('root');
+        Route::prefix('{project}')
+            ->name('project.')
+            ->group(function () {
+                Route::get('/', 'ProjectController@show')->name('root');
+                Route::get('/edit', 'ProjectController@edit')->name('root');
+            });
     });
+// });
 
+// admin auth
 Route::namespace('Admin')
     ->prefix('admin')
     ->name('admin.')
